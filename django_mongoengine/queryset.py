@@ -91,7 +91,8 @@ class BaseQuerySet(object):
 
 
 class QuerySet(BaseQuerySet, qs.QuerySet):
-    pass
+    def values_list(self, *fields, **kwargs):
+        return super(QuerySet, self).values_list(*fields)
 
 
 class QuerySetNoCache(BaseQuerySet, qs.QuerySetNoCache):
